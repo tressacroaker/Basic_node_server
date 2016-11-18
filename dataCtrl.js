@@ -1,4 +1,4 @@
-var DataModel = require("dataModel.js");
+var DataModel = require("./dataModel.js");
 
 module.exports = {
 	read: function(req, res){
