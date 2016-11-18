@@ -1,4 +1,5 @@
 var DataModel = require("./dataModel.js");
+var mongoose = require("mongoose");
 
 module.exports = {
 	read: function(req, res){
@@ -6,9 +7,9 @@ module.exports = {
 		.find(req.query)
 		.exec(function(err, result){
 			if(err){
-				req.send(err)
+				res.send(err)
 			}else{
-				req.send(result)
+				res.send(result)
 			}
 		});
 	},
@@ -17,9 +18,9 @@ module.exports = {
 		data
 		.save(function(err, result){
 			if(err){
-				req.send(err)
+				res.send(err)
 			}else{
-				req.send(result)
+				res.send(result)
 			}
 		});
 	},
@@ -27,9 +28,9 @@ module.exports = {
 		DataModel
 		.findByIdAndUpdate(req.params.id, req.body,function(err, result){
 				if(err){
-					req.send(err)
+					res.send(err)
 				}else{
-					req.send(result)
+					res.send(result)
 				}
 		});
 
@@ -38,9 +39,9 @@ module.exports = {
 		DataModel
 		.findByIdAndRemove(req.params.id, req.body, function(err, result){
 			if(err){
-					req.send(err)
+					res.send(err)
 				}else{
-					req.send(result)
+					res.send(result)
 				}
 		});
 	}
